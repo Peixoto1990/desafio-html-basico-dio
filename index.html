@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - Curso HTML Semântico - DIO</title>
+    <meta name="description" content="Desafio proposto é estruturar um website com as novas tags semânticas do HTML 5. Curso promovido pela DIO.me">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            margin-left: 32px;
+        }
+
+        span {
+            font-size: 32px;
+        }
+
+        #banner {
+            margin: 40px 0;
+        }
+
+        #banner figure {
+            margin: 0 auto;
+        }
+
+        main {
+            width: 80%;
+            max-width: 1200px;
+            margin: 32px auto;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+            padding: 24px;
+        }
+
+        article {
+            padding: 0 16px;
+            margin: 16px 0;
+        }
+
+        article p {
+            padding: 0 16px;
+        }
+
+        summary {
+            cursor: pointer;
+        }
+
+        figure {
+            text-align: center;
+            width: max-content;
+            margin: 24px auto;
+        }
+
+        table {
+            margin-top: 16px;
+            width: 500px;
+            font-size: 20px;
+            box-shadow: 5px 5px 5px rgb(226, 226, 226);
+        }
+
+        table thead tr, table caption {
+            background-color: #0c0c0c;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+         table thead tr {
+            border-top: none;
+        }
+
+        table tfoot tr {
+            font-weight: bold;
+        }
+
+        table td, table th, table caption {
+            text-align: center;
+            padding: 16px;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: rgb(226, 226, 226);
+        }
+
+        table tbody tr:hover {
+            background-color: #0c0c0c;
+            color: rgb(226, 226, 226);
+        }
+
+        abbr {
+            cursor: context-menu;
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px 0 0 0;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <h2 aria-label="Título do menu de navegação">Índice</h2>
+            <ul class="navbar_list">
+                <li><a href="#semantica">O que é semântica?</a></li>
+                <li><a href="#novidades">Novidades do HTML 5</a></li>
+                <li><a href="#curiosidade">Curiosidade</a></li>
+                <li>
+                    <h3>Algumas <code>Tags</code></h3>
+                    <ul>
+                        <li><a href="#tagHeader"><code>&lt;header&gt;</code></a></li>
+                        <li><a href="#tagMain"><code>&lt;main&gt;</code></a></li>
+                        <li><a href="#tagFooter"><code>&lt;footer&gt;</code></a></li>
+                        <li><a href="#tagNav"><code>&lt;nav&gt;</code></a></li>
+                        <li><a href="#tagsOL_UL"><code>&lt;ol&gt; e &lt;ul&gt;</code></a>
+                            <ol>
+                                <li><a href="#tagLi"><code>&lt;li&gt;</code></a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#tagTable"><code>&lt;table&gt;</code></a>
+                            <ol>
+                               <li><a href="#tagThead"><code>&lt;thead&gt;</code></a></li>
+                               <li><a href="#tagTbody"><code>&lt;tbody&gt;</code></a></li>
+                               <li><a href="#tagTfoot"><code>&lt;tfoot&gt;</code></a></li>
+                               <li><a href="#tagTR"><code>&lt;tr&gt;</code></a></li>
+                               <li><a href="#tagTH"><code>&lt;th&gt;</code></a></li>
+                               <li><a href="#tagTD"><code>&lt;td&gt;</code></a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#tagsSub_Sup"><code>&lt;sub&gt; e &lt;sup&gt;</code></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <section id="banner">
+        <figure>
+            <img width="600" src="https://images.pexels.com/photos/11035371/pexels-photo-11035371.jpeg" alt="logotipo do HTML5">
+            <figcaption>Logotipo de HMTL5 - <small>Crédito Pexels</small></figcaption>
+        </figure>
+    </section>
+    <hr>
+    <main>
+        <h1><i>HTML 5 - O HTML Semântico</i></h1>
+        <hr>
+        <section id="semantica">
+            <a href="#navbar"><span>&larr;</span> Menu</a>
+            <article>
+                <h2>Afinal, o que é essa tal de semântica?</h2>
+                <p>
+                    Semântica é o estudo do significado das palavras, frases e expressões. Ela ajuda a entender como usamos a linguagem
+                    para comunicar ideias, sentimentos e informações. Por exemplo, quando dizemos "coração", podemos estar falando do
+                    órgão do corpo ou de sentimentos como amor — e é a semântica que nos ajuda a interpretar isso corretamente.
+                </p>
+                <p>
+                    Na prática, a semântica está presente em tudo o que falamos e escrevemos. Ela permite que a gente compreenda o
+                    sentido por trás das palavras, levando em conta o contexto em que são usadas. É como se fosse o “sabor” da linguagem
+                    — o que dá sentido real às palavras que escolhemos.
+                </p>
+                <h3>E o que isso tem a ver com o HTML5?</h3>
+                <p>
+                    O HTML5 trouxe uma grande evolução ao permitir que os desenvolvedores usem tags com significado — ou seja,
+                    semânticas. Isso quer dizer que, em vez de usar apenas <code>&lt;div&gt;</code> para tudo, agora podemos usar
+                    <strong><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code></strong> e
+                    outras que indicam claramente o papel de cada parte do conteúdo. Isso facilita a leitura do código, melhora a
+                    acessibilidade para leitores de tela e ajuda os mecanismos de busca a entenderem melhor a estrutura da página.
+                </p>
+                <p>
+                    Em resumo: a semântica no HTML5 é como dar nome aos blocos da sua página, tornando tudo mais organizado,
+                    compreensível e profissional — tanto para humanos quanto para máquinas.
+                </p>
+            </article>
+        </section>
+        <section id="novidades">
+            <a href="#navbar"><span>&larr;</span> Menu</a>
+            <article>
+                <h2>Novidades do HTML5</h2>
+                <p>
+                    O HTML5 trouxe uma série de melhorias que tornaram o desenvolvimento web mais moderno, acessível e eficiente. Uma
+                    das principais novidades foi a introdução de <strong><u>tags semânticas</u></strong>, como <code>&lt;header&gt;</code>,
+                    <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;footer&gt;</code>, que
+                    ajudam a organizar o conteúdo com significado claro.
+                </p>
+                <p>
+                    Outra grande mudança foi o suporte nativo a <strong>áudio e vídeo</strong>, com as tags <code>&lt;audio&gt;</code> e
+                    <code>&lt;video&gt;</code>, eliminando a necessidade de plugins externos como Flash. Também foi incluído o elemento
+                    <code>&lt;canvas&gt;</code>, que permite desenhar gráficos diretamente na página usando JavaScript.
+                </p>
+                <p>
+                    O HTML5 também trouxe melhorias para <strong>formulários</strong>, com novos tipos de entrada como <code>email</code>,
+                    <code>url</code>, <code>date</code>, <code>range</code> e <code>color</code>, facilitando a validação e a coleta de
+                    dados. Além disso, passou a oferecer <strong>armazenamento local</strong> com <code><mark>localStorage</mark></code> e
+                    <code><mark>sessionStorage</mark></code>, permitindo guardar informações no navegador sem depender de cookies.
+                </p>
+                <aside>
+                    <details>
+                        <summary>Veja um vídeo sobre as novidades...</summary>
+                        <figure>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/IHMOu_KEW-0?si=Jp98PaSl_-gqjftP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <figcaption>Vídeo explicativo sobre semântica do HTML5 - <small>Crédito Youtube</small></figcaption>
+                        </figure>
+                    </details>
+                </aside>
+            </article>
+        </section>
+        <aside id="curiosidade">
+            <a href="#navbar"><span>&larr;</span> Menu</a>
+            <h3>Curiosidade</h3>
+            <h4>Tags descontinuadas no HTML</h4>
+            <p>
+                Com a evolução do HTML, várias tags foram descontinuadas por não seguirem boas práticas de estrutura e estilo. Essas
+                tags eram usadas principalmente para fins visuais, que hoje são tratados com CSS.
+            </p>
+            <p>
+                Um exemplo clássico é a tag <del>&lt;font&gt;</del><ins>&lt;span&gt; com CSS</ins>, que servia para alterar cor,
+                tamanho e tipo de fonte do texto. Ela foi descontinuada no HTML5, pois fere o princípio da separação entre conteúdo
+                e apresentação.
+            </p>
+            <blockquote>
+                Outras tags obsoletas incluem &lt;center&gt;, &lt;strike&gt;, <code>&lt;tt&gt;</code>,
+                <code>&lt;acronym&gt;</code> e <code>&lt;frameset&gt;</code>. Todas foram substituídas por alternativas mais
+                modernas e acessíveis.
+            </blockquote>
+        </aside>
+        <section id="tags">
+            <details>
+                <summary>Clique para expandir a seção sobre as tags</summary>
+                <h2>Tags</h2>
+                <hr>
+                <a href="#navbar"><span>&larr;</span> Menu</a>
+                <article id="tagHeader">
+                    <h3>Header</h3>
+                    <p>
+                        A tag <code>&lt;header&gt;</code> é um elemento semântico do HTML5 que representa o cabeçalho de uma página ou
+                        de
+                        uma seção específica. Ela é usada para agrupar elementos introdutórios ou de navegação, como logotipos, títulos,
+                        menus e até formulários de busca. O objetivo principal é fornecer contexto sobre o conteúdo que segue,
+                        facilitando a
+                        organização e a acessibilidade do site.
+                    </p>
+                    <p>
+                        É importante não confundir <code>&lt;header&gt;</code> com <code>&lt;head&gt;</code>: enquanto
+                        <code>&lt;head&gt;</code> contém metadados e configurações da página, <code>&lt;header&gt;</code> é parte
+                        visível do
+                        corpo do site. Além disso, a tag <code>&lt;header&gt;</code> pode ser usada dentro de outras seções como
+                        <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code> ou <code>&lt;aside&gt;</code>, sempre com a função de
+                        introduzir aquele bloco de conteúdo.
+                    </p>
+                    <aside>
+                        <details>
+                            <summary>Curiosidade sobre o uso da tag</summary>
+                            <p>
+                                Embora seja comum usar apenas um <code>&lt;header&gt;</code> no topo da página, é perfeitamente válido
+                                ter múltiplos
+                                cabeçalhos em diferentes seções. Isso ajuda a manter a estrutura clara e melhora a experiência de
+                                leitura,
+                                especialmente em artigos longos ou páginas com múltiplos blocos temáticos.
+                            </p>
+                        </details>
+                    </aside>
+                </article>
+                <article id="tagMain">
+                    <h3>Main</h3>
+                    <p>
+                        A tag <code>&lt;main&gt;</code> representa o conteúdo principal de uma página HTML. Ela foi criada no HTML5 para
+                        indicar, de forma clara, qual parte do site é o foco principal — ou seja, o que realmente importa para o
+                        visitante.
+                        Tudo que está dentro do <code>&lt;main&gt;</code> deve estar diretamente relacionado ao propósito da página.
+                    </p>
+                    <p>
+                        Por exemplo, em um blog, o texto do artigo estaria dentro do <code>&lt;main&gt;</code>. Já elementos como menus,
+                        rodapés ou barras laterais ficam fora, pois são considerados complementares. É importante lembrar que só deve
+                        haver
+                        <strong>uma única tag <code>&lt;main&gt;</code> por página</strong>, e ela não pode estar dentro de outras tags
+                        como
+                        <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> ou <code>&lt;nav&gt;</code>.
+                    </p>
+                    <aside>
+                        <details>
+                            <summary>Curiosidade sobre a tag</summary>
+                            <p>
+                                A tag <code>&lt;main&gt;</code> ajuda leitores de tela e mecanismos de busca a entenderem rapidamente
+                                qual é
+                                o conteúdo mais relevante da página. Isso melhora a acessibilidade e também o <strong><abbr
+                                        title="Search Engine Optimization" lang="en">SEO</abbr></strong> do site.
+                            </p>
+                        </details>
+                    </aside>
+                </article>
+                <article id="tagFooter">
+                    <h3>Footer</h3>
+                    <p>
+                        A tag <code>&lt;footer&gt;</code> representa o rodapé de uma página ou de uma seção específica. Ela é usada para
+                        agrupar informações complementares, como dados do autor, direitos autorais, links de contato, políticas do site
+                        ou
+                        até uma navegação secundária. O objetivo é encerrar o conteúdo com elementos úteis e informativos, sem
+                        interferir no
+                        conteúdo principal.
+                    </p>
+                    <p>
+                        Você pode usar múltiplos <code>&lt;footer&gt;</code> em uma mesma página, desde que cada um esteja relacionado
+                        ao
+                        seu bloco de conteúdo — por exemplo, um rodapé dentro de um <code>&lt;article&gt;</code> ou
+                        <code>&lt;section&gt;</code>. No entanto, é importante evitar colocar um <code>&lt;footer&gt;</code> dentro de
+                        outro
+                        <code>&lt;footer&gt;</code> ou dentro de um <code>&lt;header&gt;</code>.
+                    </p>
+                </article>
+                <a href="#navbar"><span>&larr;</span> Menu</a>
+                <article id="tagNav">
+                    <h3>Nav</h3>
+                    <p>
+                        A tag <code>&lt;nav&gt;</code> é usada para definir uma área de navegação em uma página HTML. Ela agrupa links
+                        que
+                        levam o usuário para outras partes do site ou para seções dentro da mesma página. Isso inclui menus principais,
+                        barras laterais, rodapés com links úteis e qualquer outro conjunto de navegação relevante.
+                    </p>
+                    <p>
+                        Diferente de uma <code>&lt;div&gt;</code> comum, a <code>&lt;nav&gt;</code> tem significado semântico: ela
+                        informa
+                        aos navegadores e leitores de tela que aquele bloco contém links de navegação. Isso melhora a acessibilidade e
+                        ajuda
+                        mecanismos de busca a entenderem melhor a estrutura do site.
+                    </p>
+                </article>
+                <article id="tagsOL_UL">
+                    <h3>OL e UL</h3>
+                    <p>
+                        As tags <code>&lt;ol&gt;</code> e <code>&lt;ul&gt;</code> são usadas para criar listas em HTML. A diferença
+                        entre
+                        elas está na forma como os itens são apresentados: <code>&lt;ol&gt;</code> cria uma <strong>lista
+                            ordenada</strong>, com
+                        numeração ou letras, ideal para sequências ou passos; já <code>&lt;ul&gt;</code> cria uma <strong>lista não
+                            ordenada</strong>,
+                        com marcadores simples, usada quando a ordem dos itens não importa.
+                    </p>
+                    <p>
+                        Em ambos os casos, os itens da lista são definidos com a tag <code>&lt;li&gt;</code>, que representa cada
+                        elemento
+                        individual. Você pode usar essas listas para menus, tópicos, instruções, entre outros.
+                    </p>
+                </article>
+                <article id="tagLi">
+                    <h3>LI</h3>
+                    <p>
+                        A tag <code>&lt;li&gt;</code> é usada para representar um item dentro de uma lista em HTML. Ela deve estar
+                        sempre
+                        contida em uma tag de lista, como <code>&lt;ul&gt;</code> (lista não ordenada), <code>&lt;ol&gt;</code> (lista
+                        ordenada). Cada <code>&lt;li&gt;</code> define um elemento individual da lista, como um
+                        tópico, opção ou passo.
+                    </p>
+                    <p>
+                        Essa tag é essencial para organizar conteúdos em formato de lista, tornando a leitura mais clara e estruturada.
+                        Você
+                        pode usar quantos <code>&lt;li&gt;</code> quiser dentro de uma lista, e também pode criar listas aninhadas — ou
+                        seja, listas dentro de listas — para representar hierarquias ou subcategorias.
+                    </p>
+                </article>
+                <a href="#navbar"><span>&larr;</span> Menu</a>
+                <article id="tagTable">
+                    <h3>Table</h3>
+                    <p>
+                        A tag <code>&lt;table&gt;</code> é usada para criar tabelas em HTML, permitindo organizar dados em linhas e
+                        colunas.
+                        Ela é ideal para apresentar informações estruturadas, como listas de produtos, horários, resultados ou qualquer
+                        conteúdo que precise de uma visualização clara e alinhada.
+                    </p>
+                    <p>
+                        Dentro da tag <code>&lt;table&gt;</code>, usamos outras tags para montar a estrutura: <code>&lt;tr&gt;</code>
+                        para
+                        definir linhas, <code>&lt;td&gt;</code> para células de dados e <code>&lt;th&gt;</code> para cabeçalhos. Também
+                        é
+                        possível usar <code>&lt;caption&gt;</code> para adicionar um título à tabela, e <code>&lt;thead&gt;</code>,
+                        <code>&lt;tbody&gt;</code> e <code>&lt;tfoot&gt;</code> para separar visualmente e semanticamente as partes da
+                        tabela.
+                    </p>
+                    <aside>
+                        <details>
+                            <summary>Clique e veja um exemplo de tabela</summary>
+                            <table cellspacing="0">
+                                <caption>Tabela de Colaboradores</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Idade</th>
+                                        <th>Profissão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alice</td>
+                                        <td>24</td>
+                                        <td>Recepcionista</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bruno</td>
+                                        <td>33</td>
+                                        <td>Enfermeiro</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roberto</td>
+                                        <td>44</td>
+                                        <td>Pintor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Suelen</td>
+                                        <td>28</td>
+                                        <td>Advogada</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Victor</td>
+                                        <td>35</td>
+                                        <td>Médico</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Colaboradores</td>
+                                        <td colspan="2">5</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </details>
+                    </aside>
+                </article>
+                <article id="tagThead">
+                    <h3>Thead</h3>
+                    <p>
+                        A tag <code>&lt;thead&gt;</code> é usada para agrupar o cabeçalho de uma tabela HTML. Ela organiza as linhas que
+                        contêm os títulos das colunas, geralmente utilizando a tag <code>&lt;th&gt;</code> para destacar cada célula como
+                        cabeçalho. Isso ajuda a tornar os dados mais claros e acessíveis, tanto para usuários quanto para leitores de tela.
+                    </p>
+                    <p>
+                        O <code>&lt;thead&gt;</code> deve ser colocado logo após a abertura da tag <code>&lt;table&gt;</code>, antes do
+                        <code>&lt;tbody&gt;</code> e do <code>&lt;tfoot&gt;</code>. Embora não altere visualmente a tabela por padrão, seu
+                        uso melhora a semântica do código e facilita a aplicação de estilos com CSS.
+                    </p>
+                </article>
+                <article id="tagTbody">
+                    <h3>Tbody</h3>
+                    <p>
+                        A tag <code>&lt;tbody&gt;</code> é usada para agrupar o corpo principal de uma tabela HTML — ou seja, as linhas que
+                        contêm os dados reais. Ela funciona como uma divisão semântica que separa o conteúdo da tabela dos cabeçalhos
+                        (<code>&lt;thead&gt;</code>) e do rodapé (<code>&lt;tfoot&gt;</code>), tornando o código mais organizado e
+                        acessível.
+                    </p>
+                    <p>
+                        Dentro do <code>&lt;tbody&gt;</code>, você deve usar a tag <code>&lt;tr&gt;</code> para criar linhas, e dentro de
+                        cada linha, as tags <code>&lt;td&gt;</code> ou <code>&lt;th&gt;</code> para definir as células. Embora o uso do
+                        <code>&lt;tbody&gt;</code> não altere visualmente a tabela por padrão, ele é essencial para manter uma estrutura
+                        semântica clara.
+                    </p>
+                </article>
+                <a href="#navbar"><span>&larr;</span> Menu</a>
+                <article id="tagTfoot">
+                    <h3>Tfoot</h3>
+                    <p>
+                        A tag <code>&lt;tfoot&gt;</code> é usada para definir o rodapé de uma tabela HTML. Ela agrupa uma ou mais linhas que
+                        geralmente contêm **totais, resumos ou informações finais** relacionadas aos dados apresentados. Embora visualmente
+                        não altere a tabela por padrão, seu uso melhora a organização e a semântica do código.
+                    </p>
+                    <p>
+                        O <code>&lt;tfoot&gt;</code> deve ser colocado dentro da tag <code>&lt;table&gt;</code>, normalmente **antes do
+                        <code>&lt;tbody&gt;</code>**, mesmo que o conteúdo apareça visualmente no final. Isso permite que navegadores e
+                        impressoras tratem o rodapé corretamente, como repetir o conteúdo em cada página impressa ou manter o rodapé fixo
+                        com rolagem.
+                    </p>
+                </article>
+                <article id="tagTR">
+                    <h3>TR</h3>
+                    <p>
+                        A tag <code>&lt;tr&gt;</code> é usada para criar uma **linha** dentro de uma tabela HTML. Ela agrupa células de
+                        dados (<code>&lt;td&gt;</code>) ou de cabeçalho (<code>&lt;th&gt;</code>) que formam uma linha horizontal. Cada vez
+                        que você usa <code>&lt;tr&gt;</code>, está definindo uma nova linha na tabela — seja no cabeçalho, no corpo ou no
+                        rodapé.
+                    </p>
+                    <p>
+                        Essa tag deve estar sempre dentro de uma estrutura de tabela, como <code>&lt;thead&gt;</code>,
+                        <code>&lt;tbody&gt;</code> ou <code>&lt;tfoot&gt;</code>. Dentro de cada <code>&lt;tr&gt;</code>, você pode colocar
+                        quantas células quiser, respeitando a lógica da tabela.
+                    </p>
+                </article>
+                <article id="tagTH">
+                    <h3>TH</h3>
+                    <p>
+                        A tag <code>&lt;th&gt;</code> é usada para definir uma **célula de cabeçalho** em uma tabela HTML. Ela serve para
+                        identificar o conteúdo das colunas ou linhas, funcionando como um título para os dados que estão ao lado ou abaixo.
+                        Por padrão, os navegadores exibem o conteúdo da célula <code>&lt;th&gt;</code> em **negrito e centralizado**,
+                        destacando visualmente o cabeçalho.
+                    </p>
+                    <p>
+                        Essa tag deve estar dentro de uma linha <code>&lt;tr&gt;</code>, e pode ser usada tanto no
+                        <code>&lt;thead&gt;</code> quanto no <code>&lt;tbody&gt;</code> ou <code>&lt;tfoot&gt;</code>, dependendo da função
+                        da célula. Para melhorar a acessibilidade, é recomendado usar o atributo <code>scope</code>, indicando se o
+                        cabeçalho se refere a uma linha (<code>row</code>) ou a uma coluna (<code>col</code>).
+                    </p>
+                </article>
+                <a href="#navbar"><span>&larr;</span> Menu</a>
+                <article id="tagTD">
+                    <h3>TD</h3>
+                    <p>
+                        A tag <code>&lt;td&gt;</code> é usada para criar uma **célula de dados** dentro de uma tabela HTML. Ela representa o
+                        conteúdo real de uma linha, como textos, números, imagens ou qualquer outro tipo de informação que você queira
+                        exibir. Cada <code>&lt;td&gt;</code> deve estar dentro de uma linha <code>&lt;tr&gt;</code>, formando a estrutura da
+                        tabela.
+                    </p>
+                    <p>
+                        Diferente da tag <code>&lt;th&gt;</code>, que é usada para cabeçalhos, a <code>&lt;td&gt;</code> não tem destaque
+                        visual por padrão — o conteúdo aparece alinhado à esquerda e sem negrito, mas isso pode ser facilmente personalizado
+                        com CSS.
+                    </p>
+                </article>
+                <article id="tagsSub_Sup">
+                    <h3>SUB e SUP</h3>
+                    <p>
+                        As tags <code>&lt;sub&gt;</code> e <code>&lt;sup&gt;</code> são usadas para formatar texto em <strong>subscrito</strong> e
+                        <strong>sobrescrito</strong>, respectivamente. A tag <code>&lt;sub&gt;</code> posiciona o texto um pouco abaixo da linha base —
+                        comum em fórmulas químicas, como H<sub>2</sub>O. Já a tag <code>&lt;sup&gt;</code> posiciona o texto acima da linha
+                        — ideal para expoentes matemáticos, como x<sup>2</sup>.
+                    </p>
+                    <p>
+                        Essas tags são úteis para dar clareza visual e semântica a conteúdos técnicos, científicos ou matemáticos, mantendo
+                        a estrutura do texto organizada e acessível.
+                    </p>
+                </article>
+                </section>
+            </details>
+    </main>
+    <hr>
+    <footer>
+        <section id="links_uteis">
+            <h5 style="font-size: 16px;">Links úteis</h5>
+            <ul aria-label="lista de links úteis">
+                <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">w3schools</a></li>
+                <li><a href="https://www.dio.me/" target="_blank">dio.me</a></li>
+                <li><a href="https://github.com/digitalinnovationone/trilha-html-modulo-1" target="_blank">Trilha HTML - DIO</a></li>
+            </ul>
+        </section>
+        <section id="creditos">
+            <h6 style="font-size: 14px; margin: 8px 0;">Site desenvolvido por Aluilson Peixoto - para o desafio do curso de HTML5 da <abbr title="Digital Innovation One
+            " lang="en">DIO</abbr></h6>
+        </section>
+    </footer>
+</body>
+</html>
